@@ -1,0 +1,71 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "Electrical wiring project record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "clientName": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name"]
+    },
+    "Item": {
+      "title": "Item",
+      "description": "Electrical component inventory item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "projectId": { "type": "string" },
+        "stageName": { "type": "string" },
+        "name": { "type": "string" },
+        "imageUri": { "type": "string" },
+        "quantityMode": { "type": "string" },
+        "quantity": { "type": "integer" },
+        "q1": { "type": "integer" },
+        "q2": { "type": "integer" },
+        "q3": { "type": "integer" },
+        "wireColor": { "type": "string" },
+        "c1": { "type": "string" },
+        "c2": { "type": "string" },
+        "c3": { "type": "string" },
+        "unit": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "projectId", "stageName", "name"]
+    },
+    "CloudSync": {
+      "title": "CloudSync",
+      "description": "User cloud backup and synchronization package",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "backupData": { "type": "string" },
+        "projectCount": { "type": "integer" },
+        "itemCount": { "type": "integer" },
+        "syncedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "backupData"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/projects/{projectId}": {
+      "schema": "Project",
+      "description": "User's electrical wiring projects"
+    },
+    "/users/{userId}/items/{itemId}": {
+      "schema": "Item",
+      "description": "User's electrical items"
+    },
+    "/users/{userId}/sync/{syncId}": {
+      "schema": "CloudSync",
+      "description": "User's cloud backup snapshot"
+    }
+  }
+}

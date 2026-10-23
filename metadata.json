@@ -1,0 +1,6 @@
+{
+  "name": "أصيل المليكي",
+  "description": "تطبيق حصر وإدارة مواد تمديدات الكهرباء المنزلية من التأسيس وحتى التشطيب وتصدير جداول الكميات",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
