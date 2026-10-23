@@ -24,11 +24,12 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
+
       - name: Get Signing Report
-          run: ./gradlew signingReport
+        run: ./gradlew signingReport
 
       - name: Build Debug APK
-        run: gradle assembleDebug --stacktrace
+        run: ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
